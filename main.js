@@ -1,5 +1,6 @@
 const addProductToCatalog = require('./addProduct');
 const getAvailableProducts = require('./getAvailableProducts');
+const calculateTotalAmount = require('./getCatalogValue');
 
 const productsCatalog = [
     {name: "Mouse", price: 100, stock: 10},
@@ -32,3 +33,4 @@ try {
 
 console.log("--- Available Products (stock > 0) ---");
 console.log(getAvailableProducts(updatedCatalog));
+console.log(`Catalog Total Amount: ${calculateTotalAmount(updatedCatalog)}`);
