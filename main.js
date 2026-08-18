@@ -45,16 +45,16 @@ const { getProduct, showProduct } = createProductApi(updatedCatalog);
 
 (async () => {
 
-  console.log("product ->", await getProduct(1));
-  console.log("product ->", await getProduct(3));
-  console.log("product ->", await getProduct(10));
+  console.log("product 1 ->", await getProduct(1));
+  console.log("product 3 ->", await getProduct(3));
+  console.log("product 10 ->", await getProduct(10));
 
   // Promise.all: pide varias promesas en paralelo
   const allProducts = await Promise.all([getProduct(1), getProduct(2), getProduct(3), getProduct(4)]);
   console.log("\nPromise.all ->", allProducts);
 
-  console.log("product ->", await showProduct(1));
-  console.log("product ->", await showProduct(2));
-  console.log("product ->", await showProduct(10));
+  console.log("product 1 ->", await showProduct(1));
+  console.log("product 2 ->", await showProduct(2));
+  console.log("product 10 ->", await showProduct(10));
 
 })();

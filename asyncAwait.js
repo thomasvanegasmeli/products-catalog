@@ -5,7 +5,7 @@ function createProductApi(catalog) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const product = catalog.find((p) => p.id === id);
-        product ? resolve(product) : reject(new Error("Producto no encontrado"));
+        product ? resolve(product) : reject(new Error("Product not found"));
       }, 500);
     });
   }
@@ -23,7 +23,7 @@ function createProductApi(catalog) {
   // encadenar await sobre otra función async
   async function showProduct(id) {
     const product = await getProduct(id);
-    return product ? `Producto: ${product.name}, Precio: ${product.price}` : "Producto no encontrado";
+    return product ? `Product: ${product.name}, Price: ${product.price}` : "Product not found";
   }
 
   return { getProduct, showProduct };
