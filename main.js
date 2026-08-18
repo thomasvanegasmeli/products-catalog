@@ -1,20 +1,23 @@
 const addProductToCatalog = require('./addProduct');
 const getAvailableProducts = require('./getAvailableProducts');
 const calculateTotalAmount = require('./getCatalogValue');
+const createProductApi = require('./asyncAwait').createProductApi;
 
 const productsCatalog = [
-    {name: "Mouse", price: 100, stock: 10},
-    {name: "Keyboard", price: 200, stock: 5},
-    {name: "Monitor", price: 500, stock: 0},
+    {id: 1, name: "Mouse", price: 100, stock: 10},
+    {id: 2, name: "Keyboard", price: 200, stock: 5},
+    {id: 3, name: "Monitor", price: 500, stock: 0},
 ];
 
 const newProduct = {
+    id: 4,
     name: "Webcam",
     price: 250,
     stock: 6,
 }
 
 const invalidProduct = {
+    id: 5,
     name: "Mouse",
     price: 150,
     stock: 2
@@ -33,4 +36,25 @@ try {
 
 console.log("--- Available Products (stock > 0) ---");
 console.log(getAvailableProducts(updatedCatalog));
+
 console.log(`Catalog Total Amount: ${calculateTotalAmount(updatedCatalog)}`);
+
+console.log("\n --- Simulating an API --- \n");
+
+const { getProduct, showProduct } = createProductApi(updatedCatalog);
+
+(async () => {
+
+  console.log("product ->", await getProduct(1));
+  console.log("product ->", await getProduct(3));
+  console.log("product ->", await getProduct(10));
+
+  // Promise.all: pide varias promesas en paralelo
+  const allProducts = await Promise.all([getProduct(1), getProduct(2), getProduct(3), getProduct(4)]);
+  console.log("\nPromise.all ->", allProducts);
+
+  console.log("product ->", await showProduct(1));
+  console.log("product ->", await showProduct(2));
+  console.log("product ->", await showProduct(10));
+
+})();
