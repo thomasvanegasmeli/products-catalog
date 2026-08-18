@@ -9,7 +9,7 @@ const addProductToCatalog = (catalog, product) => {
 
     const existingProduct = catalog.find(p => p.name === name);
     if (existingProduct) {
-        throw new Error(`Product with name "${name}" already exists in the catalog.`);
+        throw new Error(`Product with name "${name}" already exists in the catalog. \n`);
     }
 
     return [...catalog, product];
