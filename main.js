@@ -1,9 +1,10 @@
 const addProductToCatalog = require('./addProduct');
+const getAvailableProducts = require('./getAvailableProducts');
 
 const productsCatalog = [
     {name: "Mouse", price: 100, stock: 10},
     {name: "Keyboard", price: 200, stock: 5},
-    {name: "Monitor", price: 500, stock: 2},
+    {name: "Monitor", price: 500, stock: 0},
 ];
 
 const newProduct = {
@@ -28,3 +29,6 @@ try {
 } catch (error) {
     console.error("Error adding invalid product:", error.message);
 }
+
+console.log("--- Available Products (stock > 0) ---");
+console.log(getAvailableProducts(updatedCatalog));
