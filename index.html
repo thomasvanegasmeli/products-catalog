@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover ready-to-ship technology products.">
+    <title>Meli Products Catalog</title>
+    <link rel="icon" type="image/png" href="./imgs/favicon.png">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="brand" href="#home" aria-label="Meli Catalog home">
+                <img src="./imgs/mercado-libre-logo.png" alt="Mercado Libre">
+                <span>Products Catalog</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow">Meli products catalog</p>
+                <h1 id="hero-title">Find the technology that moves your day.</h1>
+                <a class="primary-button" href="#products">Explore products</a>
+            </div>
+        </section>
+
+        <section class="products-section" id="products" aria-labelledby="products-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Available products</p>
+                    <h2 id="products-title">Ready for your cart</h2>
+                </div>
+                <p id="product-count" class="product-count" aria-live="polite"></p>
+            </div>
+            <div id="products-grid" class="products-grid" aria-live="polite"></div>
+            <p id="empty-state" class="empty-state" hidden>No products are currently available.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <a class="footer-brand" href="#home">Meli Catalog</a>
+                <p>Find the technology that moves your day.</p>
+            </div>
+            <address>
+                <a href="mailto:thomas.vanegas@mercadolibre.com.co">thomas.vanegas@mercadolibre.com.co</a>
+                <a href="tel:+573014706648">+57 301 470 6648</a>
+            </address>
+            <p class="copyright">&copy; 2026 Meli Products Catalog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./getAvailableProducts.js" defer></script>
+    <script src="./catalog.js" defer></script>
+    <script src="./render-products.js" defer></script>
+</body>
+</html>
